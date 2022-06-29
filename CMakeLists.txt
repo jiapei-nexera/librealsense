@@ -2,6 +2,12 @@
 cmake_minimum_required(VERSION 3.1.0)
 project(librealsense2 LANGUAGES CXX C)
 
+if(NOT DEFINED ${CMAKE_CUDA_ARCHITECTURES})
+    set(CMAKE_CUDA_ARCHITECTURES 86)
+endif()
+message(STATUS "CUDA architectures set to ${CMAKE_CUDA_ARCHITECTURES}")
+
+
 include(CMake/lrs_options.cmake)
 include(CMake/connectivity_check.cmake)
 #Deprecation message, should be removed in future releases
