@@ -71,6 +71,9 @@ include(common/utilities/CMakeLists.txt)
 # macro definition located at "CMake/<OS>_config.cmake"
 os_target_config()
 
+find_package(PkgConfig)
+pkg_search_module(SQLITE3 REQUIRED sqlite3)
+
 # global project configuration
 # macro definition located at "CMake/global_config.cmake"
 global_target_config()
