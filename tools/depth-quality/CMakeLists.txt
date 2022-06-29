@@ -36,14 +36,14 @@ if(BUILD_GRAPHICAL_EXAMPLES)
         depth-quality-model.cpp
         depth-metrics.h
         ../../common/realsense-ui-advanced-mode.h
-        ../../third-party/imgui/imgui.cpp
-        ../../third-party/imgui/imgui_draw.cpp
-        ../../third-party/imgui/imgui_impl_glfw.cpp
-        ../../third-party/imgui/imgui-fonts-karla.hpp
-        ../../third-party/imgui/imgui-fonts-fontawesome.hpp
-        ../../third-party/glad/glad.c
-        ../../third-party/tinyfiledialogs/tinyfiledialogs.c
-        ../../third-party/tinyfiledialogs/tinyfiledialogs.h
+        # ../../third-party/imgui/imgui.cpp
+        # ../../third-party/imgui/imgui_draw.cpp
+        # ../../third-party/imgui/imgui_impl_glfw.cpp
+        # ../../third-party/imgui/imgui-fonts-karla.hpp
+        # ../../third-party/imgui/imgui-fonts-fontawesome.hpp
+        # ../../third-party/glad/glad.c
+        # ../../third-party/tinyfiledialogs/tinyfiledialogs.c
+        # ../../third-party/tinyfiledialogs/tinyfiledialogs.h
         )
 
     if(WIN32)
@@ -111,7 +111,10 @@ if(BUILD_GRAPHICAL_EXAMPLES)
     target_link_libraries(rs-depth-quality ${DEPENDENCIES}
                                            ${GTK3_LIBRARIES}
                                            Threads::Threads
-                                           realsense2-gl)
+                                           realsense2-gl
+                                           imgui
+                                           glad
+                                           tinyfiledialogs)
 
     if (IMPORT_DEPTH_CAM_FW)
         add_definitions(-DINTERNAL_FW)

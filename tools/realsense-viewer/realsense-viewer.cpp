@@ -23,7 +23,7 @@
 #include <set>
 #include <regex>
 
-#include <imgui_internal.h>
+#include <imgui/imgui_internal.h>
 
 #ifdef INTERNAL_FW
 #include "common/fw/D4XX_FW_Image.h"
@@ -552,7 +552,8 @@ int main(int argc, const char** argv) try
                     ImGui::SameLine();
                     //ImGui::SetCursorPosY(ImGui::GetCursorPosY() - 1);
                     ImGui::PushItemWidth(width - ImGui::GetCursorPosX() - 10);
-                    if (ImGui::GetWindowIsFocused() && !ImGui::IsAnyItemActive())
+                    //if (ImGui::GetWindowIsFocused() && !ImGui::IsAnyItemActive())
+                    if (ImGui::IsWindowFocused() && !ImGui::IsAnyItemActive())
                     {
                         ImGui::SetKeyboardFocusHere();
                     }
@@ -667,7 +668,7 @@ int main(int argc, const char** argv) try
                 }
             }
 
-            ImGui::SetContentRegionWidth(windows_width);
+            // ImGui::SetContentRegionWidth(windows_width);           
 
             auto pos = ImGui::GetCursorScreenPos();
             auto h = ImGui::GetWindowHeight();

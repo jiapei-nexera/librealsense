@@ -25,11 +25,11 @@ if(BUILD_GRAPHICAL_EXAMPLES)
     set(RS_VIEWER_CPP
     ${COMMON_SRC}
     realsense-viewer.cpp
-    ../../third-party/imgui/imgui.cpp
-    ../../third-party/imgui/imgui_draw.cpp
-    ../../third-party/imgui/imgui_impl_glfw.cpp
-    ../../third-party/imgui/imgui-fonts-karla.hpp
-    ../../third-party/imgui/imgui-fonts-fontawesome.hpp
+    # ../../third-party/imgui/imgui.cpp
+    # ../../third-party/imgui/imgui_draw.cpp
+    # ../../third-party/imgui/imgui_impl_glfw.cpp
+    # ../../third-party/imgui/imgui-fonts-karla.hpp
+    # ../../third-party/imgui/imgui-fonts-fontawesome.hpp
     ../../common/realsense-ui-advanced-mode.h
     ../../common/rendering.h
     ../../common/model-views.h
@@ -44,9 +44,9 @@ if(BUILD_GRAPHICAL_EXAMPLES)
     ../../common/post-processing-worker-filter.h
     ../../common/post-processing-filters-list.h
     ../../common/objects-in-frame.h
-    ../../third-party/glad/glad.c
-    ../../third-party/tinyfiledialogs/tinyfiledialogs.c
-    ../../third-party/tinyfiledialogs/tinyfiledialogs.h
+    # ../../third-party/glad/glad.c
+    # ../../third-party/tinyfiledialogs/tinyfiledialogs.c
+    # ../../third-party/tinyfiledialogs/tinyfiledialogs.h
     ../../common/opengl3.cpp
     ../../common/opengl3.h
     ../../common/rs-config.h
