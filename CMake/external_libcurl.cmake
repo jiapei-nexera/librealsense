@@ -14,34 +14,36 @@ if(CHECK_FOR_UPDATES)
         set(CURL_FLAGS ${CURL_FLAGS} -DCMAKE_USE_OPENSSL=ON )
     endif()
     
-    ExternalProject_Add(
-        libcurl
-        PREFIX libcurl
-        GIT_REPOSITORY "https://github.com/curl/curl.git"
-        GIT_TAG "2f33be817cbce6ad7a36f27dd7ada9219f13584c" # curl-7_75_0
-        SOURCE_DIR ${CMAKE_CURRENT_BINARY_DIR}/third-party/libcurl
-        CMAKE_ARGS  -DCMAKE_CXX_FLAGS=${CMAKE_CXX_FLAGS}
-                    -DCMAKE_C_FLAGS=${CMAKE_C_FLAGS}
-                    -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
-                    -DCMAKE_C_FLAGS_DEBUG=${CMAKE_C_FLAGS_DEBUG}
-                    -DCMAKE_C_FLAGS_MINSIZEREL=${CMAKE_C_FLAGS_MINSIZEREL}
-                    -DCMAKE_C_FLAGS_RELEASE=${CMAKE_C_FLAGS_RELEASE}
-                    -DCMAKE_C_FLAGS_RELWITHDEBINFO=${CMAKE_C_FLAGS_RELWITHDEBINFO}
-                    -DCMAKE_CXX_STANDARD_LIBRARIES=${CMAKE_CXX_STANDARD_LIBRARIES}
-                    -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/libcurl/libcurl_install
-                    -DCMAKE_INSTALL_LIBDIR=lib
-                    -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE}
-                    -DANDROID_ABI=${ANDROID_ABI}
-                    -DANDROID_STL=${ANDROID_STL} ${CURL_FLAGS}
-        UPDATE_COMMAND ""
-        PATCH_COMMAND ""
-        TEST_COMMAND ""
-    )
+    # ExternalProject_Add(
+    #     libcurl
+    #     PREFIX libcurl
+    #     GIT_REPOSITORY "https://github.com/curl/curl.git"
+    #     GIT_TAG "2f33be817cbce6ad7a36f27dd7ada9219f13584c" # curl-7_75_0
+    #     SOURCE_DIR ${CMAKE_CURRENT_BINARY_DIR}/third-party/libcurl
+    #     CMAKE_ARGS  -DCMAKE_CXX_FLAGS=${CMAKE_CXX_FLAGS}
+    #                 -DCMAKE_C_FLAGS=${CMAKE_C_FLAGS}
+    #                 -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
+    #                 -DCMAKE_C_FLAGS_DEBUG=${CMAKE_C_FLAGS_DEBUG}
+    #                 -DCMAKE_C_FLAGS_MINSIZEREL=${CMAKE_C_FLAGS_MINSIZEREL}
+    #                 -DCMAKE_C_FLAGS_RELEASE=${CMAKE_C_FLAGS_RELEASE}
+    #                 -DCMAKE_C_FLAGS_RELWITHDEBINFO=${CMAKE_C_FLAGS_RELWITHDEBINFO}
+    #                 -DCMAKE_CXX_STANDARD_LIBRARIES=${CMAKE_CXX_STANDARD_LIBRARIES}
+    #                 -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/libcurl/libcurl_install
+    #                 -DCMAKE_INSTALL_LIBDIR=lib
+    #                 -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE}
+    #                 -DANDROID_ABI=${ANDROID_ABI}
+    #                 -DANDROID_STL=${ANDROID_STL} ${CURL_FLAGS}
+    #     UPDATE_COMMAND ""
+    #     PATCH_COMMAND ""
+    #     TEST_COMMAND ""
+    # )
 
-    set(CURL_DEBUG_TARGET_NAME "libcurl-d")
-    set(CURL_RELEASE_TARGET_NAME "libcurl")
-    add_library(curl INTERFACE)
-    add_definitions(-DCURL_STATICLIB) # Mandatory for building libcurl as static lib
+    # set(CURL_DEBUG_TARGET_NAME "libcurl-d")
+    # set(CURL_RELEASE_TARGET_NAME "libcurl")
+    # add_library(curl INTERFACE)
+    # add_definitions(-DCURL_STATICLIB) # Mandatory for building libcurl as static lib
+    find_package(PkgConfig)
+    pkg_search_module(CURL REQUIRED curl)
 
     target_include_directories(curl INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/libcurl/libcurl_install/include>)
         
