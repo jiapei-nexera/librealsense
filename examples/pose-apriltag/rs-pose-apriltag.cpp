@@ -9,10 +9,11 @@
 #include <future>
 #include <math.h>
 
-#include "apriltag.h"
-#include "apriltag_pose.h"
-#include "common/homography.h"
-#include "tag36h11.h"
+#include "apriltag/apriltag.h"
+#include "apriltag/apriltag_pose.h"
+#include "apriltag/common/matd.h"
+#include "apriltag/common/homography.h"
+#include "apriltag/tag36h11.h"
 
 #define FORMAT_VALUE     std::fixed << std::right << std::setprecision(3) << std::setw(6)
 
