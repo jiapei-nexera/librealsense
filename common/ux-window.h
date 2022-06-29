@@ -3,7 +3,7 @@
 #define GLFW_INCLUDE_GLU
 #include <GLFW/glfw3.h>
 
-#include "imgui.h"
+#include "imgui/imgui.h"
 #include <string>
 #include <functional>
 #include <thread>

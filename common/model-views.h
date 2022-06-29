@@ -12,14 +12,14 @@
 #define GLFW_INCLUDE_GLU
 #include <GLFW/glfw3.h>
 #include "opengl3.h"
-#include <imgui.h>
-#include <imgui_impl_glfw.h>
+#include <imgui/imgui.h>
+#include <imgui/imgui_impl_glfw.h>
 #include <map>
 #include <set>
 #include <array>
 #include <unordered_map>
 
-#include "../third-party/json.hpp"
+#include "nlohmann/json.hpp"
 #include "objects-in-frame.h"
 #include "processing-block-model.h"
 

@@ -19,13 +19,13 @@
 #include "viewer.h"
 #include "post-processing-filters-list.h"
 #include "post-processing-block-model.h"
-#include <imgui_internal.h>
+#include <imgui/imgui_internal.h>
 #include <time.h>
 #include "ux-window.h"
 
-#include "imgui-fonts-karla.hpp"
-#include "imgui-fonts-fontawesome.hpp"
-#include "imgui-fonts-monofont.hpp"
+#include "imgui/imgui-fonts-karla.hpp"
+#include "imgui/imgui-fonts-fontawesome.hpp"
+#include "imgui/imgui-fonts-monofont.hpp"
 
 #include "os.h"
 
